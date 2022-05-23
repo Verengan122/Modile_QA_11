@@ -21,11 +21,11 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("browserstack.user", Validation.configBrowserstack.username());
         mutableCapabilities.setCapability("browserstack.key", Validation.configBrowserstack.password());
         mutableCapabilities.setCapability("app", Validation.configBrowserstack.app());
-        mutableCapabilities.setCapability("device", "Google Pixel 3");
-        mutableCapabilities.setCapability("os_version", "9.0");
+        mutableCapabilities.setCapability("device", "Samsung Galaxy S22 Plus");
+        mutableCapabilities.setCapability("os_version", "12.0");
         mutableCapabilities.setCapability("project", "First Java Project");
         mutableCapabilities.setCapability("build", "browserstack-build-1");
-        mutableCapabilities.setCapability("name", "parallel_test");
+        mutableCapabilities.setCapability("name", "first_test");
 
         return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);
     }
