@@ -1,6 +1,5 @@
 package steps;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import pages.PagesObjects;
 
@@ -11,8 +10,8 @@ public class StepsTest extends PagesObjects {
     @Step("Проверяем доступность выбора языка и переходим к следующему пункту")
     public StepsTest languageAccessibilityCheck() {
 
-        primaryTextViev
-                .shouldHave(Condition.text("The Free Encyclopedia …in over 300 languages"));
+        langContainer
+                .shouldHave(text("ADD OR EDIT LANGUAGES"));
         forwardButton
                 .click();
 
