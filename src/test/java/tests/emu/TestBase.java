@@ -1,20 +1,21 @@
-package tests.emulator;
+package tests.emu;
 
 import com.codeborne.selenide.Configuration;
 import drivers.BrowserstackMobileDriver;
-import drivers.EmulationMobileDriver;
+import drivers.EmuMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.getSessionId;
 
+
 public class TestBase {
+
     private static final String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll
@@ -26,7 +27,7 @@ public class TestBase {
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
                 break;
             case "emulation":
-                Configuration.browser = EmulationMobileDriver.class.getName();
+                Configuration.browser = EmuMobileDriver.class.getName();
                 break;
             default:
                 throw new RuntimeException("Select device: browserstack / emulation");

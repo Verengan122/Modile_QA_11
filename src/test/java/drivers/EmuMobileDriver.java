@@ -16,7 +16,7 @@ import java.net.URL;
 
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
-public class EmulationMobileDriver implements WebDriverProvider {
+public class EmuMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
@@ -31,23 +31,23 @@ public class EmulationMobileDriver implements WebDriverProvider {
         options.setApp(app.getAbsolutePath());
         options.setLocale("en");
         options.setLanguage("en");
-        options.setAppPackage(Credentials.configEmulation.appPackage());
-        options.setAppActivity(Credentials.configEmulation.appActivity());
+        options.setAppPackage(Credentials.configEmu.appPackage());
+        options.setAppActivity(Credentials.configEmu.appActivity());
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(Credentials.configEmulation.serverUrl());
+            return new URL(Credentials.configEmu.serverUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
     private File getApp() {
-        String appPath = Credentials.configEmulation.appPath();
-        String appUrl = Credentials.configEmulation.appUrl();
+        String appPath = Credentials.configEmu.appPath();
+        String appUrl = Credentials.configEmu.appUrl();
 
         File app = new File(appPath);
         if (!app.exists()) {
