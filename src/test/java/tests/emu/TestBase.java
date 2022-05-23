@@ -2,7 +2,6 @@ package tests.emu;
 
 import com.codeborne.selenide.Configuration;
 import drivers.BrowserstackMobileDriver;
-import drivers.EmuMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;

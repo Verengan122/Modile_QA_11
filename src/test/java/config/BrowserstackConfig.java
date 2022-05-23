@@ -5,11 +5,11 @@ import org.aeonbits.owner.Config;
 @Config.Sources({"classpath:config/browserstack.properties"})
 public interface BrowserstackConfig extends Config {
 
-    @Config.Key("user")
-    String user();
+    @Config.Key("username")
+    String username();
 
-    @Config.Key("key")
-    String key();
+    @Config.Key("password")
+    String password();
 
     @Config.Key("app")
     String app();

@@ -14,7 +14,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
     public static URL getBrowserstackUrl() {
         try {
-            return new URL(Credentials.configBro.url());
+            return new URL(Credentials.configBrowserstack.url());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,9 +26,9 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.merge(caps);
 
         mutableCapabilities.setCapability("browserstack.appium_version", "1.22.0");
-        mutableCapabilities.setCapability("browserstack.user", Credentials.configBro.user());
-        mutableCapabilities.setCapability("browserstack.key", Credentials.configBro.key());
-        mutableCapabilities.setCapability("app", Credentials.configBro.app());
+        mutableCapabilities.setCapability("browserstack.user", Credentials.configBrowserstack.username());
+        mutableCapabilities.setCapability("browserstack.key", Credentials.configBrowserstack.password());
+        mutableCapabilities.setCapability("app", Credentials.configBrowserstack.app());
         mutableCapabilities.setCapability("device", "Samsung Galaxy S22 Plus");
         mutableCapabilities.setCapability("os_version", "12.0");
         mutableCapabilities.setCapability("project", "First Java Project");
