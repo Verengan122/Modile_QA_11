@@ -2,21 +2,22 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"classpath:emulation.properties"})
+@Config.Sources({"classpath:config/emulation.properties"})
 public interface EmulationConfig extends Config {
-    @Config.Key("appPackage")
+
+    @Key("appPackage")
     String appPackage();
 
-    @Config.Key("appActivity")
+    @Key("appActivity")
     String appActivity();
 
-    @Config.Key("serverUrl")
+    @Key("serverUrl")
     String serverUrl();
 
-    @Config.Key("appUrl")
+    @Key("appUrl")
     String appUrl();
 
-    @Config.Key("appPath")
+    @Key("appPath")
     String appPath();
 
 }

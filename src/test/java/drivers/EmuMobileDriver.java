@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.Validation;
+import config.Credentials;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
@@ -16,8 +16,7 @@ import java.net.URL;
 
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
-public class EmulationMobileDriver implements WebDriverProvider {
-
+public class EmuMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
@@ -32,23 +31,23 @@ public class EmulationMobileDriver implements WebDriverProvider {
         options.setApp(app.getAbsolutePath());
         options.setLocale("en");
         options.setLanguage("en");
-        options.setAppPackage(Validation.configEmulation.appPackage());
-        options.setAppActivity(Validation.configEmulation.appActivity());
+        options.setAppPackage(Credentials.configEmulation.appPackage());
+        options.setAppActivity(Credentials.configEmulation.appActivity());
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(Validation.configEmulation.serverUrl());
+            return new URL(Credentials.configEmulation.serverUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
     private File getApp() {
-        String appPath = Validation.configEmulation.appPath();
-        String appUrl = Validation.configEmulation.appUrl();
+        String appPath = Credentials.configEmulation.appPath();
+        String appUrl = Credentials.configEmulation.appUrl();
 
         File app = new File(appPath);
         if (!app.exists()) {
